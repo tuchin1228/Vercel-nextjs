@@ -1,8 +1,15 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import { useRouter } from 'next/router';
 
 export default function Home() {
+  const router = useRouter();
+  const goTest = () => {
+     router.push({
+       pathname: '/test',
+     });
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -20,6 +27,10 @@ export default function Home() {
           Get started by editing{' '}
           <code className={styles.code}>pages/index.js</code>
         </p>
+
+        <button type="button" onClick={() => goTest()}>
+          GoTest
+        </button>
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
@@ -65,5 +76,5 @@ export default function Home() {
         </a>
       </footer>
     </div>
-  )
+  );
 }
